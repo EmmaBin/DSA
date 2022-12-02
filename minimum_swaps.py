@@ -3,11 +3,11 @@
 def minmum_swaps(arr):
 
     swaps = 0
-    tmp = {}
+    lookup = {}
 
 #create a dictionary, index is the key, value is the dict value
     for i, val in enumerate(arr):
-        tmp[val] = i
+        lookup[val] = i
 
 #think about the original postion, 1 is at index 0, if it's not at its original position, swap is happening
     for i in range(len(arr)):
@@ -19,8 +19,8 @@ def minmum_swaps(arr):
             arr[i] = i+1
             #using dictionary index to find out the updated value's index, then arr[index] = temporary number
             #one swap finished
-            arr[tmp[i+1]] = t
+            arr[lookup[i+1]] = t
             #update the dictionary accordingly
-            tmp[t] = tmp[i+1]
+            lookup[t] = lookup[i+1]
 
     return swaps
