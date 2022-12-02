@@ -20,12 +20,21 @@ def minimumBribes(q):
 
 #solution 2 
 def minimumBribes(q):
+    
     bribes = 0
-    for i in range(len(q)-1, -1, -1):
-        if q[i] - (i + 1) > 2:
-            print('Too chaotic')
-            return
-        for j in range(max(0, q[i] - 2), i):
-            if q[j] > q[i]:
-                bribes += 1
-    print(bribes)
+    last_item = len(q)
+    while len(q)!=0:
+        count = 0
+        for i in range(len(q)-1, len(q)-4, -1):
+            if q[i] == last_item:
+                bribes+= count
+                q.pop(i)
+                break
+            elif count ==2:
+                print('Too chaotic') 
+                return
+            else:
+                count +=1
+        last_item = len(q)
+        
+    print (bribes)
