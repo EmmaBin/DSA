@@ -20,7 +20,7 @@ def minmum_swaps(arr):
             #using dictionary index to find out the updated value's index, then arr[index] = temporary number
             #one swap finished
             arr[lookup[i+1]] = t
-            #update the dictionary accordingly
-            lookup[t] = lookup[i+1]
+            #update the dictionary accordingly, no need to think about lookup[i+1]'s value inside the dict, it won't be touched
+            lookup[t] = lookup[i+1]d
 
     return swaps
