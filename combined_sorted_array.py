@@ -1,3 +1,6 @@
+#Given two sorted integer arrays, 
+# return an array that combines both of them and is also sorted.
+
 def combined_sorted_array(arr1, arr2):
     answer=[]
     i=j=0
