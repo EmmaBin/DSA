@@ -13,11 +13,11 @@ def longest_subarray(nums, k):
 
     for right in range(len(nums)):
         current += nums[right]
-        if current > k:
+        while current > k:
             current -= nums[left]
             left+=1
     
         answer = max(0, right-left+1)
     return answer
-    
+
 print(longest_subarray([3, 1, 2, 7, 4, 2, 1, 1, 5],8))
