@@ -24,5 +24,3 @@ class Solution:
 #two pointer starts at both ends, and iterate towards the middle, 
 #switch the elements each time,
 #use a temp to hold the current value which will be assigned later
-
-#? is this align with the O(1) extra memory requirement??
