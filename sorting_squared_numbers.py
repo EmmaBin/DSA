@@ -5,6 +5,10 @@
 # Input: nums = [-4,-1,0,3,10]
 # Output: [0,1,9,16,100]
 
+
+#result=[0] * len(nums) this is to create a place holder to be replaced with new element
+#這一步是為了先建立一個一樣長度的array， 後面會被相應index的element代替掉
+
 def sortedSquares(self, nums: List[int]) -> List[int]:
     left=0
     right=len(nums)-1
