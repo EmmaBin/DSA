@@ -25,3 +25,7 @@ class Solution:
         
         frequencies = counts.values()
         return len(set(frequencies)) == 1
+
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+        return len(set(Counter(s).values())) == 1
