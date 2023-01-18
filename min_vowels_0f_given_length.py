@@ -30,3 +30,29 @@ class Solution:
             left +=1
             max_count = max(count, max_count)
         return max_count
+
+
+#第二次刷题：
+#还有一个情况要考虑，if k>len(s) return -1
+
+class Solution:
+    def maxVowels(self, s: str, k: int) -> int:
+        if k>len(s):
+            return -1
+        count = 0
+        vowels='aeiou'
+        left=0
+        for i in range(0,k):
+            if s[i] in vowels:
+                count+=1
+        result = count 
+
+        for right in range(k, len(s)):
+            if s[right] in vowels:
+                count+=1
+            if s[left] in vowels:
+                count-=1
+            left+=1
+
+            result = max(count, result)
+        return result 
