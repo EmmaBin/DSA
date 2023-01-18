@@ -57,5 +57,59 @@ class Solution:
             s_list[i] = ''.join(temp)
         return ' '.join(s_list)
 
-  
+  #二刷
+  #以下是错误的：
+  class Solution:
+    def reverseWords(self, s: str) -> str:
+        s_list = s.split(' ')
+        result =[]
+        for word in s_list:
+            left =0
+            right= len(word)-1
+            while right > left:
+                temp = list(word)
+                temp[left], temp[right] = temp[right], temp[left]
+                left+=1
+                right-=1
+            #这个是错的，因为join的不应该是word, word,还是原来的string
+            result.append(''.join(word))
+        return (' '.join(result))
+#这个也是错的
 
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s_list = s.split(' ')
+        result =[]
+        for word in s_list:
+            left =0
+            right= len(word)-1
+            while right > left:
+                temp = list(word)
+                temp[left], temp[right] = temp[right], temp[left]
+                left+=1
+                right-=1
+                
+            result.append(''.join(temp))
+        return (' '.join(result))
+"God Ding"  --> "doG Dnig"  应该是 "doG gniD"
+
+#这个是正确的：
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s_list = s.split(' ')
+        result =[]
+        for word in s_list:
+            left =0
+            right= len(word)-1
+            #如果把temp放在while loop 里面，那每一次temp 都是同一个word, 而pointers在变，所以只有最后一次变化
+            #在出来while loop 时候 被记住了
+            temp = list(word)
+            while right > left:
+                
+                temp[left], temp[right] = temp[right], temp[left]
+                left+=1
+                right-=1
+                
+    
+            result.append(''.join(temp))
+        return (' '.join(result))
