@@ -11,8 +11,8 @@ class Solution:
       
         # O(n) and O(n)
         if len(nums) == 0: return -1
-            dp = [0] * len(nums)
-            dp[0] = nums[0]
+        dp = [0] * len(nums)
+        dp[0] = nums[0]
         #following step is creating a prefix_sum
         for i in range(1, len(nums)):
             dp[i] = dp[i - 1] + nums[i]
