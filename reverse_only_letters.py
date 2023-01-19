@@ -13,6 +13,8 @@ class Solution:
                 i+=1
                 #if there is no continue, it won't work, bcz
                 #the function of continue here means 
+                #The continue keyword is used to end the current iteration in a for loop (or a while loop), 
+                # and continues to the next iteration.
                 continue
             if not s_list[j].isalpha():
                 j-=1
