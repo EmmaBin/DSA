@@ -22,3 +22,10 @@ class Solution:
 	for key, value in sorted(sCounter.items(), key=lambda x:x[1], reverse=True):
 		result.append(key*value)
 	return ''.join(result)
+
+
+
+
+    class Solution:
+    def frequencySort(self, s: str) -> str:
+        return reduce(lambda a, b: a + b[1]*b[0], Counter(s).most_common(), '')
