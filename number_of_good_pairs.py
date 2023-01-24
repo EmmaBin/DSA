@@ -26,3 +26,13 @@ class Solution:
             else:
                 hmap[num] = [i]
         return count
+
+        from collections import defaultdict
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        countDict = defaultdict(int)
+        total = 0
+        for num in nums: 
+            total += countDict[num]
+            countDict[num] += 1
+        return total
