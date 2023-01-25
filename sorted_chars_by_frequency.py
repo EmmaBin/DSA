@@ -29,3 +29,12 @@ class Solution:
     class Solution:
     def frequencySort(self, s: str) -> str:
         return reduce(lambda a, b: a + b[1]*b[0], Counter(s).most_common(), '')
+
+
+from collections import Counter
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        s1, c = '', Counter(s)
+        for k,v in c.most_common():
+            s1 = s1 + k*v
+        return s1  
