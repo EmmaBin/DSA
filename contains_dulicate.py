@@ -20,7 +20,7 @@ class Solution:
                 return True
         
         return False
-
+Space complexity: O(n)
 
 #  We start off by sorting the given array. 
 #  Once we loop through the array from the beginning, 
