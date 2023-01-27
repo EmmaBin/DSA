@@ -25,3 +25,21 @@ class Solution:
                 return True
             s2_sub_dict ={}
         return False
+
+
+from collections import defaultdict
+def a_fun(s1, s2):
+  s1_dic = defaultdict(int)
+  for char in s1:
+    s1_dic[char] +=1
+  print(s1_dic)
+
+  for i in range(len(s2)-len(s1)+1):
+    s2_dic= defaultdict(int)
+    for char in s2[i:i+len(s1)]:
+      s2_dic[char]+=1
+    
+    if s1_dic == s2_dic:
+      return True
+    
+  return False
