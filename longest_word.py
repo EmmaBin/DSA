@@ -8,7 +8,7 @@ def LongestWord(sen):
         nw += " "
     return max(nw.split(),key=len)
 
-
+#replace special characters with empty space
 import re
 
 def LongestWord(sen): 
