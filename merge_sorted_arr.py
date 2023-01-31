@@ -31,4 +31,10 @@ def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
             nums1[m+n-1] = nums2[n-1]
             n -= 1
     #当m 是0， n 不是0， 那么全都被替代
-    nums1[:n] = nums2[:n]  # copying the remaining element at the begining of nums1
+    nums1[:n] = nums2[:n]  # copying the remaining element at the begining of nums1'
+
+
+#tail1 reach out to 0 sooner than tail2 , therefore, tail2 must > 0, and we can simply execute the last line code
+#tail2 reach out to 0 sonner than tail1, which means at that point, nums1[tail1] < nums2[0] ,
+#  and the every element before tail1 of the nums1 is sorted due to the description, 
+# That's why we don't need to do anything about the rest tail1.
