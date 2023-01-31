@@ -13,3 +13,12 @@ def twoSum(self, nums: List[int], target: int) -> List[int]:
 
 #dictionary is very useful for quick lookup, instead of looping twice, using dictionary
 #will only loop once
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        result =[]
+        for idx in range(len(nums)):
+            if target - nums[idx] in nums and idx != nums.index(target-nums[idx]):
+                result.append(idx)
+        return result
