@@ -36,3 +36,16 @@ class Solution:
                 max_p = max(max_p, prices[right]- prices[left])
                 right+=1
         return max_p
+
+
+def findMaxProfit(arr):
+
+  maxProfit = 0
+  minPrice = arr[0]
+
+  for i in range(1, len(arr)):
+    currProfit = arr[i] - minPrice 
+    maxProfit = max(maxProfit, currProfit)
+    minPrice = min(minPrice, arr[i])
+
+  return maxProfit
