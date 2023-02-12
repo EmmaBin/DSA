@@ -5,30 +5,21 @@
 # For example: if str is "2.36" then this should be displayed by the following image:
 
 
-def StarRating(str):
-  n_fulls = int(float(str) // 1)
-  remainer = float(str) - n_fulls
+def StarRating(strParam):
 
-  if remainer < 0.25:
-    n_halfs = 0
-  elif remainer < 0.75:
-    n_halfs = 1
+  result = ''
+  ones = int(strParam[0])
+  number = float(strParam)
+  decimal = number - int(number)
+  
+  if decimal >= 0.75:
+    result = 'full ' * (ones +1) + 'empty '* (4-ones)
+  elif decimal >= 0.25 and decimal < 0.75:
+    result = 'full ' * ones + 'half ' + 'empty ' * (4 - ones)
   else:
-    n_halfs = 0
-    n_fulls += 1
+    result ='full ' * ones + 'empty ' * (5-ones)
+  
+  return result
 
-  n_empties = 5 - n_fulls - n_halfs
-
-  ans = ''
-  for i in range(n_fulls):
-    ans += 'full '
-  
-  if n_halfs == 1:
-    ans += 'half '
-  
-  for i in range(n_empties):
-    ans += 'empty '
-  
-  return ans[:-1]
 # keep this function call here 
 print(StarRating(input()))
