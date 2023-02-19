@@ -3,15 +3,16 @@
 #two pointers method: switch 0 and none-zeros, switch everytime, make sure 0 always stay behind
 
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        i = 0
-        for j in range(len(nums)):
-            if nums[j] !=0:
-                nums[i], nums[j] = nums[j], nums[i]
-                i+=1
+    def moveZeroes(self, nums: list) -> None:
+        slow = 0
+        for fast in range(len(nums)):
+            if nums[fast] != 0 and nums[slow] == 0:
+                nums[slow], nums[fast] = nums[fast], nums[slow]
+
+            # wait while we find a non-zero element to
+            # swap with you
+            if nums[slow] != 0:
+                slow += 1
 
 
 #second method:
