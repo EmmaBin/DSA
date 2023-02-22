@@ -10,3 +10,30 @@ def DivisionStringified(num1,num2):
 
 # keep this function call here 
 print(DivisionStringified(input()))
+
+
+def DivisionStringified(num1,num2):
+
+  x = num1 // num2
+  y = (num1 / num2) % 1
+  
+  if y >= 0.5:
+    x += 1
+  else:
+    pass
+  
+  x = str(x)
+  x = x[::-1]
+
+  ans = ''
+
+  for i, c in enumerate(x):
+    if i % 3 == 0 and i != 0:
+      ans += ',' + c
+    else:
+      ans += c
+
+  return ans[::-1]  
+
+# keep this function call here 
+print(DivisionStringified(input()))
