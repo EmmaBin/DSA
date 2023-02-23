@@ -14,7 +14,7 @@ def ArrayAdditionI(arr):
 
   # code goes here
   the_num = max(arr)
-  arr.remove(s)
+  arr.remove(the_num)
   comb = []
   for i in range(len(arr) + 1):
     #itertools.combinations return tuples, i is the length
