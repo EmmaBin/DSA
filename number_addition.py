@@ -22,3 +22,17 @@ def NumberAddition(strParam):
 print(NumberAddition(input()))
 #using regex to split the string into list, delimiter is non-numerical element
 #loop over the list to add up the number, str=>int
+
+def NumberAddition(str):
+  num = ''
+  for i in str:
+    if i.isnumeric():
+      num += i
+    else:
+      num += ' '
+  num = num.split()
+  num = [int(i) for i in num]
+  return sum(num)
+
+# keep this function call here 
+print(NumberAddition(input()))
