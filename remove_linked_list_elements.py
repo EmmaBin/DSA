@@ -19,3 +19,8 @@ class Solution:
             else:
                 curr=curr.next
         return dummy.next
+
+
+
+#这道题的重点是一直向前看，check 下一个是不是要找的val
+#dummy.next考虑的事，第一个node就是要找的val的话，dummy.next就可以指向新的符合条件的node了
