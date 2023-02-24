@@ -20,3 +20,18 @@ def AdditivePersistence(num):
     #1. 不要把input int 复杂化，转化成str就可以有 len 和 iterate 的属性了
     #2. 在whileloop里面我才需要设置 total =0, 这样每一次才能从头得到一个新的数字
     #3. 这个数字就是需要我再次计算它的长度的，所以重新assign name到 num_str, 这样我才能一直给新的数据传送过去到while condition 里面
+
+
+
+
+def AdditivePersistence(num, counter=0):
+  if len(str(num)) == 1:
+    return counter
+  
+  sum = 0
+  for s in list(str(num)):
+    sum += int(s)
+  return AdditivePersistence(sum, counter + 1)
+
+# keep this function call here 
+print(AdditivePersistence(input()))
