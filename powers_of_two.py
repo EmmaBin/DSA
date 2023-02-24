@@ -20,3 +20,19 @@ def PowersofTwo(num):
 print(PowersofTwo(input()))
 
 #这是可行的，因为还有机会一直尝试，如果已经比要得到的答案大了，那肯定就是不对的了
+
+
+def PowersofTwo(num):
+  num = float(num)
+  while num > 2:
+    num = num/2
+  if num == 2: 
+    return "true"
+  else: 
+    return "false"
+  # code goes here
+
+# keep this function call here 
+print(PowersofTwo(input()))
+
+# / 这个除号得到的是小数形式，而且2.0==2. 
