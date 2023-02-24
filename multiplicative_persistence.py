@@ -17,3 +17,17 @@ def MultiplicativePersistence(num):
 
 # keep this function call here 
 print(MultiplicativePersistence(input()))
+
+
+def MultiplicativePersistence(num, count=0):
+  if len(str(num)) ==1:
+    return count
+  product = 1
+  for i in str(num):
+    product *= int(i)
+  num = product
+  return MultiplicativePersistence(num, count+1)
+
+
+# keep this function call here 
+print(MultiplicativePersistence(input()))
