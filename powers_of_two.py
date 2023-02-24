@@ -36,3 +36,14 @@ def PowersofTwo(num):
 print(PowersofTwo(input()))
 
 # / 这个除号得到的是小数形式，而且2.0==2. 
+def PowersofTwo(num):
+
+  # code goes here
+  while num % 2 == 0:
+    num = num / 2
+  if num == 1:
+    return 'true'
+  return 'false'
+
+# keep this function call here 
+print(PowersofTwo(input()))
