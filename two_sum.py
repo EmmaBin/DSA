@@ -22,3 +22,14 @@ class Solution:
             if target - nums[idx] in nums and idx != nums.index(target-nums[idx]):
                 result.append(idx)
         return result
+    
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        seen = {}
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff in seen:
+                return [seen[diff], i]
+            else:
+                seen[nums[i]] = i
