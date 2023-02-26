@@ -22,3 +22,15 @@ def wordPattern(self, pattern: str, s: str) -> bool:
                     l_to_w_map[letter] = words[index]
                     w_to_l_map[words[index]] = letter
         return True
+
+def wordPattern(self, pattern: str, s: str) -> bool:
+        s = s.split(" ")
+        if len(pattern) != len(s) or len(set(s)) != len(set(pattern)):
+            return False
+        hash_map = {}
+        for char in range(len(pattern)):
+            if pattern[char] not in hash_map:
+                hash_map[pattern[char]] = s[char]
+            elif hash_map[pattern[char]] != s[char]:
+                return False
+        return True
