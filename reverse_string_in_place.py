@@ -24,3 +24,16 @@ class Solution:
 #two pointer starts at both ends, and iterate towards the middle, 
 #switch the elements each time,
 #use a temp to hold the current value which will be assigned later
+
+
+def reverse_str_in_place(s):
+  left=0
+  right=len(s)-1
+  while left<right:
+    s[left], s[right] = s[right], s[left]
+    left+=1
+    right-=1
+
+  return s
+
+print(reverse_str_in_place(['h','e','l','l','o']))
