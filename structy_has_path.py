@@ -62,3 +62,37 @@ n = number of nodes
 e = number edges
 Time: O(e)
 Space: O(n)
+
+
+#以下是自己做出来的，没有用recursion的方法，注意要点在visited set，如果去过就重新开始iteration
+#stack最后会为空，跳出while loop. 没找到就是false
+def undirected_path(edges, node_A, node_B):
+  graph = convert_to_graph(edges)
+  stack=[node_A]
+  visited = set()
+  while len(stack)>0:
+    curr = stack[-1]
+    stack.pop()
+    if curr == node_B:
+      return True
+    if curr in visited:
+      continue
+    else:
+      visited.add(curr)
+  
+    for neighbor in graph[curr]:
+      stack.append(neighbor)
+  return False
+
+def convert_to_graph(edges):
+  graph={}
+  for edge in edges:
+    a, b = edge
+    if a not in graph:
+      graph[a]=[]
+    if b not in graph:
+      graph[b] =[]
+    graph[a].append(b)
+    graph[b].append(a)
+  
+  return graph
