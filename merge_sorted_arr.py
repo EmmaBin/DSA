@@ -38,3 +38,30 @@ def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
 #tail2 reach out to 0 sonner than tail1, which means at that point, nums1[tail1] < nums2[0] ,
 #  and the every element before tail1 of the nums1 is sorted due to the description, 
 # That's why we don't need to do anything about the rest tail1.
+
+#hackerrank 上的练习题，不用modify in place
+def merge(nums1, nums2):
+   
+    i=j=k=0
+    result = [0]*(len(nums1)+len(nums2))
+    while i<len(nums1) and j<len(nums2):
+        if nums1[i]<nums2[j]:
+            result[k] = nums1[i]
+            k+=1
+            i+=1
+        else:
+            result[k]=nums2[j]
+            k+=1
+            j+=1
+    while i<len(nums1):
+        result[k] = nums1[i]
+        k+=1
+        i+=1
+    while j<len(nums2):
+        result[k] = nums2[j]
+        k+=1
+        j+=1
+    
+ 
+    
+    return result
