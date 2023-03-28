@@ -28,3 +28,12 @@ def get_node_value(head, index):
     return head.val
   return get_node_value(head.next, index-1)
 #in this recursion way, decreasing the index number, if index is 0, it's the value we are looking for 
+
+def get_node_value(head, index, counter=0):
+ 
+  if head is None:
+    return None
+  if counter == index:
+    return head.val
+  counter += 1
+  return get_node_value(head.next, index, counter)
