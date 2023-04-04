@@ -44,3 +44,28 @@ def longest_streak(head):
         #count = 1 reset count
         # count = max(temp, count)
   # return count
+
+
+def longest_streak(head):
+
+  if head is None:
+    return 0
+  if head.next is None:
+    return 1
+  
+  count = 1
+  prev = head
+  curr=head.next
+  result = 0
+  while curr is not None:
+    if curr.val == prev.val:
+      count +=1
+      prev=curr
+      curr=curr.next
+    else:
+      result = max(count, result)
+      count = 1
+      prev = curr
+      curr = curr.next
+  result = max(count, result)
+  return result
