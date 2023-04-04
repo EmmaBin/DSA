@@ -24,3 +24,5 @@ class Solution:
 
 #这道题的重点是一直向前看，check 下一个是不是要找的val
 #dummy.next考虑的事，第一个node就是要找的val的话，dummy.next就可以指向新的符合条件的node了
+
+#structy 有另一个方法，直接发head是要找的那个单拎出来
