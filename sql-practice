@@ -1,0 +1,7 @@
+#https://leetcode.com/problems/customers-who-never-order/?envType=study-plan&id=sql-i
+
+SELECT Customers.name as Customers
+FROM Customers
+LEFT JOIN Orders
+ON Customers.id = Orders. customerID
+WHERE Orders.customerId is null;
