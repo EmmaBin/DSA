@@ -19,6 +19,26 @@ def validPalindrome(self, s: str) -> bool:
         right-=1
     return True
 
+
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        left = 0
+        right = len(s)-1
+        while left<right:
+
+
+            if s[left] != s[right]:
+                if s[left:right] == s[left:right][::-1] :
+                    return True
+                if s[left+1:right+1] == s[left+1:right+1][::-1]:
+                    return True
+                else:
+                    return False
+            else:
+                left+=1
+                right -=1
+
+        return True
     #reverse a string [::-1]
     #s[left+1; right+1] pay attention, to right +1 meaning include right
     #s[left: right] meaning not including right, stop at right-1
