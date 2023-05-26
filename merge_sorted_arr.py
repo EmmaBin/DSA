@@ -1,5 +1,8 @@
 #https://leetcode.com/problems/merge-sorted-array/
 
+#我在5/26的新理解：两个arr的长度是不一样的时候，很可能其中一个先走完，那先考虑的应该是第二个，因为最后return的
+#是第一个，所以只要第二个还有的时候，第一个还有的时候，先把第一个有的copy进去，如果第一个用完了，第二个还有的时候，
+#把第二个剩下的全copy到第一个
 class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
