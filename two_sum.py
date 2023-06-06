@@ -26,7 +26,16 @@ class Solution:
 
 class Solution(object):
     def twoSum(self, nums, target):
-        seen = {}class Solution:
+        seen = {}
+
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff in seen:
+                return [seen[diff], i]
+            else:
+                seen[nums[i]] = i
+
+class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)-1):
             num1 = nums[i]
@@ -36,12 +45,7 @@ class Solution(object):
             if num2 in nums[i+1:]:
                 # Return the indices of the two numbers that add up to the target
                 return [i, nums.index(num2, i+1)]
-        for i in range(len(nums)):
-            diff = target - nums[i]
-            if diff in seen:
-                return [seen[diff], i]
-            else:
-                seen[nums[i]] = i
-#O(n**2)
+            
+#this is O(n**2)
 
 
