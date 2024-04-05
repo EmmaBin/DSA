@@ -25,3 +25,20 @@ class Solution:
         right = self.postorderTraversal(root.right)
 
         return left + right + [root.val]
+class Solution:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result=[]
+        if not root:
+            return []
+        else:
+            stack=[root]
+            while stack:
+                target = stack.pop()
+                if target:
+                    result.append(target.val)
+                    stack.append(target.left)
+                    stack.append(target.right)
+                    
+                else:
+                    continue
+        return reversed(result)
