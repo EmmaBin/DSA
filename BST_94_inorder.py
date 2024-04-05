@@ -37,3 +37,22 @@ class Solution:
         right = self.inorderTraversal(root.right)
 
         return left + [root.val] + right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        #stack way
+        curr= root
+        result =[]
+        stack=[]#这里不能提前放root
+        if not root:
+            return []
+        else:
+            while stack or curr:
+                if curr:
+                    stack.append(curr)
+                    #一直访问左边点直到尽头
+                    curr = curr.left
+                else:
+                    curr=stack.pop()
+                    result.append(curr.val)
+                    curr = curr.right
+        return result
