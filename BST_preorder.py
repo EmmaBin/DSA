@@ -28,3 +28,22 @@ class Solution:
         right = self.preorderTraversal(root.right)
 
         return  [root.val] + left +  right
+
+
+
+#用stack
+def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result =[]
+        if not root:
+            return []
+        else:
+            stack=[root]
+            while stack:
+                target = stack.pop()
+                if target:
+                    result.append(target.val)
+                    stack.append(target.right)
+                    stack.append(target.left)
+                else:
+                    continue
+        return result
