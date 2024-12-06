@@ -83,3 +83,52 @@ class TodoList:
 #     (12, {'completed': False, 'description': 'Buy groceries', 'due': 20230520, 'tags': ['home']}),
 #     (10, {'completed': False, 'description': 'Read book', 'due': 20230522, 'tags': ['personal']})
 # ]
+
+
+#This is a more optimized solution
+#1. create Task class 
+#2. {userId: [Task1 isntance, Task2 instance]}
+#value is a list of Tasks instance
+class Task:
+    def __init__(self, taskId, task: int, due: int, tags: list[str]):
+
+        self.taskId = taskId
+        self.task = task
+        self.due = due
+        self.tags = tags
+        self.notCompleted = True
+
+
+class TodoList:
+
+    def __init__(self):
+
+        self.d = defaultdict(list[Task])
+        self.addCt = 0
+        
+
+    def addTask(self, userId: int, taskDescription: str, dueDate: int, tags: List[str]) -> int:
+        
+        self.addCt+= 1
+        self.d[userId].append(Task(self.addCt, taskDescription, dueDate, tags))
+        return self.addCt
+
+
+    def getAllTasks(self, userId: int) -> List[str]:
+        #here, res is a list of sorted instances 
+        res = sorted((self.d[userId]), key = lambda x: x.due)
+        return [t.task for t in res if t.notCompleted]
+
+
+    def getTasksForTag(self, userId: int, tag: str) -> List[str]:
+        
+        res = sorted((t for t in self.d[userId]), key = lambda x: x.due)
+        return [t.task for t in res if t.notCompleted and tag in t.tags]
+
+
+    def completeTask(self, userId: int, taskId: int) -> None:
+        
+        for t in self.d[userId]:
+            if t.taskId == taskId:
+                t.notCompleted = False
+                return
