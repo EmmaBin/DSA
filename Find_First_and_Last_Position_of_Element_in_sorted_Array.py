@@ -59,3 +59,41 @@ def check_duplicates(index, target, nums):
     end = end-1
 
     return [start, end]
+
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+
+        def searchFirst(nums, target):
+            first = -1
+            left = 0
+            right = len(nums)-1
+            while left <= right:
+                mid = (left + right)//2
+                if nums[mid] == target:
+                    first = mid
+                    right = mid - 1
+                elif nums[mid] > target:
+                    right = mid - 1
+                else:
+                    left = mid+1
+            return first
+
+        def searchLast(nums, target):
+            last = -1
+            left = 0
+            right = len(nums)-1
+            while left <= right:
+                mid = (left + right)//2
+                if nums[mid] == target:
+                    last = mid
+                    left = mid + 1
+                elif nums[mid] > target:
+                    right = mid - 1
+                else:
+                    left = mid+1
+            return last
+
+        first = searchFirst(nums, target)
+        last = searchLast(nums, target)
+        return [first, last]
